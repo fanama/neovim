@@ -6,7 +6,7 @@
 :set softtabstop=4
 :set mouse=a
 
-call plug#begin('C:\Users\frako\AppData\Local\nvim\autoload\plugged')
+call plug#begin()
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
