@@ -6,7 +6,7 @@
 :set softtabstop=4
 :set mouse=a
 
-call plug#begin()
+call plug#begin('C:\Users\frako\AppData\Local\nvim\autoload\plugged')
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
@@ -19,7 +19,6 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-Plug 'govim/govim'
 call plug#end()
 
 nnoremap <C-f> :NERDTreeFocus<CR>
@@ -31,11 +30,11 @@ nmap <F8> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
 
+:colorscheme jellybeans
 
 let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeDirArrowCollapsible="-"
 let g:NERDTreeShowHidden=1
-
 " --- Just Some Notes ---
 " :PlugClean :PlugInstall :UpdateRemotePlugins
 "
@@ -43,6 +42,10 @@ let g:NERDTreeShowHidden=1
 " :CocInstall coc-clangd
 " :CocInstall coc-snippets
 " :CocCommand snippets.edit... FOR EACH FILE TYPE
+
+" Prettier CocCommand
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+command! -nargs=0 Prettier :call CocCommand prettier.formatFile
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -59,5 +62,5 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
-inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>" 
+autocmd FileType scss setl iskeyword+=@-@
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
