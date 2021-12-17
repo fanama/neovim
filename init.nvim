@@ -26,6 +26,9 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 
+"go to definition
+nmap <silent> gd <Plug>(coc-definition)
+
 nmap <F8> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
@@ -35,6 +38,7 @@ nmap <F8> :TagbarToggle<CR>
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="-"
 let g:NERDTreeShowHidden=1
+" let g:webdevicons_conceal_nerdtree_brackets = 0
 " --- Just Some Notes ---
 " :PlugClean :PlugInstall :UpdateRemotePlugins
 "
