@@ -1,3 +1,18 @@
+:set number
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set smarttab
+:set softtabstop=4
+:set mouse=a
+:set encoding=UTF-8
+:set updatetime=100
+
+call plug#begin('C:\Users\frako\AppData\Local\nvim\autoload\plugged')
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
 Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
@@ -6,7 +21,7 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 nnoremap <C-f> :NERDTreeFocus<CR>
@@ -35,6 +50,13 @@ let g:NERDTreeShowHidden=1
 " :CocInstall coc-clangd
 " :CocInstall coc-snippets
 " :CocCommand snippets.edit... FOR EACH FILE TYPE
+
+"
+"golang
+let g:go_auto_type_info=1 " Automatically get signature/type info for object under cursor
+
+nnoremap <C-d> :GoInfo<CR>
+
 
 " Prettier CocCommand
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
