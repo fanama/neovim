@@ -10,11 +10,6 @@
 :set backupdir=D:\\VimTemp
 :set completeopt-=preview " For No Previews
 
-"Leader key""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-vnoremap <SPACE> <Nop>
-let mapleader=" "
-
 "Plug""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('C:\Users\frako\AppData\Local\nvim\autoload\plugged')
@@ -35,6 +30,7 @@ Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " --- Just Some Notes ---
@@ -45,12 +41,17 @@ call plug#end()
 " :CocInstall coc-snippets
 " :CocCommand snippets.edit... FOR EACH FILE TYPE
 
+"Leader key""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+vnoremap <SPACE> <Nop>
+let mapleader=" "
+
 
 "Keys"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+nmap <Leader>r :set backupdir=D:\\VimTemp <CR>
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+"nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 "  Alternate way to save
 nnoremap <C-s> :w<CR>
@@ -61,7 +62,7 @@ nnoremap <C-s> :w<CR>
 " dt + 'c'
 "
 " go
-vnoremap <leader>t :GoAddTags<CR>
+vmap <leader>z :GoAddTags <CR>
 ":GoAddTags
 
 " GoTo code navigation.
@@ -73,15 +74,43 @@ nmap <silent> gr <Plug>(coc-references)
 "reload : source $MYVIMRC
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+"Markdown
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_browser = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
 
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
 
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_filetypes = ['markdown']
 
 " NERDTree """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="-"
 let g:NERDTreeShowHidden=1
-let g:webdevicons_conceal_nerdtree_brackets = 0
+"let g:webdevicons_conceal_nerdtree_brackets = 0
 "
 "golang""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_auto_type_info=1 " Automatically get signature/type info for object under cursor
