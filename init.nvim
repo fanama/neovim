@@ -1,5 +1,5 @@
 :set number
-:set autoindent
+:set relativenumber
 :set tabstop=4
 :set shiftwidth=4
 :set smarttab
@@ -9,6 +9,10 @@
 :set updatetime=100
 :set backupdir=D:\\VimTemp
 :set completeopt-=preview " For No Previews
+:set noswapfile                  " Don't use swapfile
+:set nobackup                    " Don't create annoying backup files
+:set splitright                  " Vertical windows should be split to right
+:set splitbelow                  " Horizontal windows should split to bottom
 
 "Plug""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -32,6 +36,8 @@ Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'https://github.com/github/copilot.vim' "Copilot
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 " --- Just Some Notes ---
@@ -49,11 +55,26 @@ let mapleader=" "
 
 
 "Keys"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <Leader>r :set backupdir=D:\\VimTemp <CR>
+
+"Center search
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+"terminal
+nmap <Leader>t :terminal powershell.exe<CR>
+:tnoremap <Esc> <C-\><C-n>
+
+"NerdTree
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 "nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+
+"Copilot
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+
 "  Alternate way to save
 nnoremap <C-s> :w<CR>
 " SUROUND 
@@ -63,6 +84,7 @@ nnoremap <C-s> :w<CR>
 " dt + 'c'
 "
 " go
+nmap <Leader>r :GoRename<CR>
 vmap <leader>z :GoAddTags <CR>
 ":GoAddTags
 
@@ -71,9 +93,21 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-"
+
+
+"Telescope
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 "reload : source $MYVIMRC
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
+"File COnfig
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Markdown
 let g:mkdp_auto_start = 0
@@ -116,8 +150,14 @@ let g:NERDTreeShowHidden=1
 "golang""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_auto_type_info=1 " Automatically get signature/type info for object under cursor
 let g:go_doc_popup_window = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+" show struct fields
+let g:go_struct_fields_in_popup = 1
+
 
 
 " Prettier""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -135,6 +175,17 @@ endif
 
 filetype plugin indent on
 
+"hover cocvim doc
+let g:coc_hover_doc_enable = 1
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 set autowrite
 " airline symbols
 let g:airline_left_sep = ''
@@ -146,3 +197,4 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 autocmd FileType scss setl iskeyword+=@-@
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+
