@@ -15,7 +15,9 @@ My neovim config
 2. if *nvim --version* doesn't work add an alias
   
   - copy the profile.ps1 to the powershell directory and edit the path
-
+3. Kill a process
+  - > netstat -aof | findstr :3000
+  - > taskkill /F /PID 9576
 ## SpaceVim
 
   - > curl -sLf https://spacevim.org/install.sh | bash
