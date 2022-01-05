@@ -38,7 +38,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'https://github.com/github/copilot.vim' "Copilot
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-call plug#end()
+Plug 'https://github.com/tpope/vim-fugitive' " Git
+''call plug#end()
 
 " --- Just Some Notes ---
 " :PlugClean :PlugInstall :UpdateRemotePlugins
@@ -84,8 +85,10 @@ nnoremap <C-s> :w<CR>
 " dt + 'c'
 "
 " go
-nmap <Leader>r :GoRename<CR>
-vmap <leader>z :GoAddTags <CR>
+nmap <Leader>gr :GoRename<CR>
+vmap <leader>gtj :GoAddTags json<CR>
+vmap <leader>gtx :GoAddTags xml<CR>
+vmap <leader>gf :GoFillStruct<CR>
 ":GoAddTags
 
 " GoTo code navigation.
@@ -178,6 +181,8 @@ filetype plugin indent on
 "hover cocvim doc
 let g:coc_hover_doc_enable = 1
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
