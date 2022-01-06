@@ -1,0 +1,5 @@
+= PM2 =
+
+== Start a process ==
+
+- > pm2 start app.js --name my-api

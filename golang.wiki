@@ -1,5 +1,7 @@
 =Golang=
 
+[[Go-Install]]
+
 == Key binding ==
 
 - nmap <Leader>gr :GoRename<CR>
