@@ -1,0 +1,9 @@
+=Golang=
+
+== Key binding ==
+
+- nmap <Leader>gr :GoRename<CR>
+- vmap <leader>gtj :GoAddTags json<CR>
+- vmap <leader>gtx :GoAddTags xml<CR>
+- vmap <leader>gf :GoFillStruct<CR>
+

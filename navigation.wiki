@@ -1,0 +1,21 @@
+= Nabigation =
+
+=== Nerdtree ===
+
+- `<C-f>` : Focus
+
+=== Telescope ===
+
+-` leader>ff` :  find_file
+-` leader>fg` :  live_grep
+-` leader>fb` :  buffers<c
+-` leader>fh` :  help_tags
+
+=== CocCommand ===
+
+- `<silent>gd` : Go to definition.
+- `<silent>gy` : Go to type.
+- `<silent>gi` : Go to implementation.
+- `<silent>gr` : Go to references.
+
+
