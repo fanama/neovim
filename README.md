@@ -18,6 +18,11 @@ My neovim config
 3. Kill a process
   - > netstat -aof | findstr :3000
   - > taskkill /F /PID 9576
+4. set vi-Plugon
+  - > iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni $HOME/vimfiles/autoload/plug.vim -Force
+
+
 ## SpaceVim
 
   - > curl -sLf https://spacevim.org/install.sh | bash
