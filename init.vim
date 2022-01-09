@@ -39,6 +39,7 @@ Plug 'https://github.com/github/copilot.vim' "Copilot
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'https://github.com/tpope/vim-fugitive' " Git
+Plug 'vimwiki/vimwiki' " vim wiki
 ''call plug#end()
 
 " --- Just Some Notes ---
