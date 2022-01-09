@@ -9,3 +9,8 @@
 - vmap <leader>gtx :GoAddTags xml<CR>
 - vmap <leader>gf :GoFillStruct<CR>
 
+== Commands ==
+
+=== test ===
+
+	-  go test -v ./path/to/package -run function
