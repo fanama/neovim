@@ -1,0 +1,12 @@
+=windows=
+
+== process ==
+
+1. Check a process is running
+	
+	- > netstat -aof | findstr :3000
+	
+2. Kill a process
+	
+	- > taskkill /F /IM exec.exe
+	- > taskkill /F /PID <PID>
