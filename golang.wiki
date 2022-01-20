@@ -14,3 +14,13 @@
 === test ===
 
 	-  go test -v ./path/to/package -run function
+
+=== Hot reloading ===
+
+- install gin
+
+	- >	go install github.com/codegangsta/gin@latest
+
+- run gin server
+
+	- >	gin run main.go --appPort <portIn> --port <portOut>
