@@ -1,0 +1,12 @@
+= Deno =
+
+== Install ==
+
+- > curl -fsSL https://deno.land/x/install/install.sh | sh 
+  
+- > iwr https://deno.land/x/install/install.ps1 -useb | iex
+
+== Init a project ==
+
+- > deno run --allow-read --allow-run=git --allow-write https://raw.githubusercontent.com/GJZwiers/deno-init/v1.5.2/mod.ts -y -n awesome_deno_project
+
