@@ -1,0 +1,6 @@
+= Pandoc =
+
+== Install ==
+
+	- > $ choco install pandoc
+	- > $ choco install rsvg-convert python miktex

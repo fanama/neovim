@@ -1,3 +1,10 @@
 == coc ==
 
 CocInstall coc-go
+
+== Usefull commands ==
+
+=== Search ===
+
+- in a file : 
+  - > :s/foo/bar/g
