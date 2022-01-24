@@ -3,3 +3,5 @@
 == Start a process ==
 
 - > pm2 start app.js --name my-api
+
+- > pm2 start npm --name "my_app_name" -- start
