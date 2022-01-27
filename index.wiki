@@ -11,6 +11,8 @@
 [[golang]]
 [[Node]]
 [[Deno]]
+[[Rust]]
+
 
 === Tools ===
 

@@ -1,0 +1,11 @@
+== Install ==
+
+- > choco install rust
+
+=== nvim ===
+
+auto-complete : 
+
+- > rustup component add rls rust-analysis rust-src
+
+- > :cocInstall coc-rls
