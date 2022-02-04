@@ -13,6 +13,10 @@
 :set nobackup                    " Don't create annoying backup files
 :set splitright                  " Vertical windows should be split to right
 :set splitbelow                  " Horizontal windows should split to bottom
+:set nocompatible
+:syntax on
+:filetype plugin on
+
 
 "Plug""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -39,7 +43,10 @@ Plug 'https://github.com/github/copilot.vim' "Copilot
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'https://github.com/tpope/vim-fugitive' " Git
-Plug 'vimwiki/vimwiki' " vim wiki
+Plug 'vimwiki/vimwiki'
+Plug 'rust-lang/rust.vim'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 ''call plug#end()
 
 " --- Just Some Notes ---
@@ -55,6 +62,8 @@ Plug 'vimwiki/vimwiki' " vim wiki
 vnoremap <SPACE> <Nop>
 let mapleader=" "
 
+"vim-Wiki
+nmap <Leader>b :VimwikiGoBackLink<CR>
 
 "Keys"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

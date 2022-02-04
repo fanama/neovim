@@ -7,3 +7,35 @@
 - > curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
 
 - > sudo apt-get install build-essential nodejs
+
+=== npm link ===
+
+==== link to node_modules ===
+
+- inside the package folder, run:
+- > npm link
+
+- inside the test folder, run:
+	- > npm link package
+
+===== unlink to node_modules ====
+
+- inside the test folder, run:
+	- > npm unlink package
+
+- inside the package folder, run:
+	- > npm unlink
+
+==== react components ====
+
+
+Below are the steps I followed :
+1. In Your Application:
+a) cd node_modules/react && npm link
+b) cd node_modules/react-dom && npm link
+
+2. In Your Library
+a) npm link react
+b) npm link react-dom
+
+3)Stop your dev-server and do `npm start` again.
