@@ -1,0 +1,18 @@
+# User Stories
+
+## Issue
+  
+  
+As a user, I want to hear sound alerts when sending and receiving messages so conversations feel more immediate (and asynchronous).Acceptance Criteria
+- It’s done when the outgoing sound alert is played when a message is sent.
+- It’s done when the incoming sound alert is played when a message is received.Sound Files
+Outgoing sound file: http://www....
+Incoming sound file: http://www....
+
+## Bug
+
+Users should be able to select (and apply) the ‘disabled’ filter on the ‘Agents’ page without being redirected to another page.Scenario
+- Log in and navigate to 'Agents' section.
+- Select the ‘disabled’ filter button.Expected result
+The agents table should only show ‘disabled’ agents.Actual result
+The user is redirected to another page — this is an undefined ‘Agent’ page.
