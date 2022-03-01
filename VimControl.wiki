@@ -1,6 +1,9 @@
 == coc ==
 
 CocInstall coc-go
+CocInstall coc-prettier
+CocInstall coc-tsserver
+
 
 == Usefull commands ==
 
