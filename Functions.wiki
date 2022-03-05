@@ -1,0 +1,14 @@
+=Functions=
+
+== cast interface to struct ==
+
+Type person1 struct {
+ Username string
+ Lastname string
+ }
+ Func printIfperson1(object interface{}) {
+ person1, ok:= object. (Person1)
+ If ok {
+  fmt.printf(“Hello %s ! \n” person1.username)
+ }
+ }
