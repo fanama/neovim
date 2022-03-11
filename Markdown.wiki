@@ -1,0 +1,9 @@
+=Markdown=
+
+==Install==
+
+- > npm install -g markdown-pdf --ignore-scripts
+
+== Usage ==
+
+- > markdown-pdf README.md -s index.css -h footer.js

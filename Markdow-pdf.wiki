@@ -1,0 +1,13 @@
+= Markdown pdf =
+
+https://www.npmjs.com/package/markdown-pdf
+
+== Install ==
+
+- >  npm install -g markdown-pdf
+
+== Use ==
+
+- > markdown-pdf file.md
+
+
