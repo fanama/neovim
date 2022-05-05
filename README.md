@@ -23,6 +23,17 @@ My neovim config
     ni $HOME/vimfiles/autoload/plug.vim -Force
 
 
+## on linux
+
+```sh
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+ln -s /squashfs-root/AppRun /usr/bin/nvim
+nvim --version
+
+```
+
 ## SpaceVim
 
   - > curl -sLf https://spacevim.org/install.sh | bash
