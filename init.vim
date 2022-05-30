@@ -1,5 +1,4 @@
 :set number
-:set relativenumber
 :set tabstop=4
 :set shiftwidth=4
 :set smarttab
@@ -72,7 +71,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 "terminal
-nmap <Leader>t :terminal powershell.exe<CR>
+nmap <Leader>t :call OpenTerminal()<CR>
 :tnoremap <Esc> <C-\><C-n>
 
 "NerdTree
@@ -192,6 +191,10 @@ filetype plugin indent on
 let g:coc_hover_doc_enable = 1
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+function! OpenTerminal()
+	:terminal powershell
+	:set nonumber
+endfunction
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -212,4 +215,3 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 autocmd FileType scss setl iskeyword+=@-@
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
-
