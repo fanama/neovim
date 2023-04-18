@@ -30,6 +30,9 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 ln -s /squashfs-root/AppRun /usr/bin/nvim
+echo "nvim='/squashfs-root/AppRun'"
+mkdir ~/.config/nvim/
+touch ~/.config/nvim/init.vim
 nvim --version
 
 ```
